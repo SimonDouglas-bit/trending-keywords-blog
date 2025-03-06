@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QwQ-32B: Embracing the Power of Reinforcement Learning - My Automated Blog</title>
+    <meta name="description" content="&lt;a href=&quot;https://news.ycombinator.com/item?id=43270843&quot;&gt;Comments&lt;/a&gt;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">My Automated Blog</a></h1>
+        <p>Automatically aggregated content about interesting topics</p>
+    </header>
+    <main>
+        <article>
+            <h1>QwQ-32B: Embracing the Power of Reinforcement Learning</h1>
+            <div class="meta">Posted on March 05, 2025 | Topics: programming, python, technology</div>
+            <div class="content">
+                <p>QWEN CHAT</p>
+<p>Hugging Face</p>
+<p>ModelScope</p>
+<p>DEMO</p>
+<p>DISCORD</p>
+<p>Scaling Reinforcement Learning (RL) has the potential to enhance model performance beyond conventional pretraining and post-training methods. Recent studies have demonstrated that RL can significantly improve the reasoning capabilities of models. For instance, DeepSeek R1 has achieved state-of-the-art performance by integrating cold-start data and multi-stage training, enabling deep thinking and complex reasoning.</p>
+<p>Our research explores the scalability of Reinforcement Learning (RL) and its impact on enhancing the intelligence of large language models. We are excited to introduce QwQ-32B, a model with 32 billion parameters that achieves performance comparable to DeepSeek-R1, which boasts 671 billion parameters (with 37 billion activated). This remarkable outcome underscores the effectiveness of RL when applied to robust foundation models pretrained on extensive world knowledge. Furthermore, we have integrated agent-related capabilities into the reasoning model, enabling it to think critically while utilizing tools and adapting its reasoning based on environmental feedback. These advancements not only demonstrate the transformative potential of RL but also pave the way for further innovations in the pursuit of artificial general intelligence.</p>
+<p>QwQ-32B is open-weight in </p>
+<p>Hugging Face</p>
+<p>and </p>
+<p>ModelScope</p>
+<p>under the Apache 2.0 license and is accessible via </p>
+<p>Qwen Chat</p>
+<p>.</p>
+<p>Performance</p>
+<h1></h1>
+<p>QwQ-32B is evaluated across a range of benchmarks designed to assess its mathematical reasoning, coding proficiency, and general problem-solving capabilities. The results below highlight QwQ-32B’s performance in comparison to other leading models, including DeepSeek-R1-Distilled-Qwen-32B, DeepSeek-R1-Distilled-Llama-70B, o1-mini, and the original DeepSeek-R1.</p>
+<p>Reinforcement Learning</p>
+<h1></h1>
+<p>We began with a cold-start checkpoint and implemented a reinforcement learning (RL) scaling approach driven by outcome-based rewards. In the initial stage, we scale RL specifically for math and coding tasks. Rather than relying on traditional reward models, we utilized an accuracy verifier for math problems to ensure the correctness of final solutions and a code execution server to assess whether the generated codes successfully pass predefined test cases. As training episodes progress, performance in both domains shows continuous improvement. After the first stage, we add another stage of RL for general capabilities. It is trained with rewards from general reward model and some rule-based verifiers. We find that this stage of RL training with a small amount of steps can increase the performance of other general capabilities, such as instruction following, alignment with human preference, and agent performance, without significant performance drop in math and coding.</p>
+<p>Use QwQ-32B</p>
+<h1></h1>
+<p>Below are brief examples demonstrating how to use QwQ-32B via Hugging Face Transformers and Alibaba Cloud DashScope API.</p>
+<p>from</p>
+<p>transformers</p>
+<p>import</p>
+<p>AutoModelForCausalLM</p>
+<p>,</p>
+<p>AutoTokenizer</p>
+<p>model_name</p>
+<p>=</p>
+<p>"Qwen/QwQ-32B"</p>
+<p>model</p>
+<p>=</p>
+<p>AutoModelForCausalLM</p>
+<p>.</p>
+<p>from_pretrained</p>
+<p>(</p>
+<p>model_name</p>
+<p>,</p>
+<p>torch_dtype</p>
+<p>=</p>
+<p>"auto"</p>
+<p>,</p>
+<p>device_map</p>
+<p>=</p>
+<p>"auto"</p>
+<p>)</p>
+<p>tokenizer</p>
+<p>=</p>
+<p>AutoTokenizer</p>
+<p>.</p>
+<p>from_pretrained</p>
+<p>(</p>
+<p>model_name</p>
+<p>)</p>
+<p>prompt</p>
+<p>=</p>
+<p>"How many r's are in the word </p>
+<p>\"</p>
+<p>strawberry</p>
+<p>\"</p>
+<p>"</p>
+<p>messages</p>
+<p>=</p>
+<p>[</p>
+<p>{</p>
+<p>"role"</p>
+<p>:</p>
+<p>"user"</p>
+<p>,</p>
+<p>"content"</p>
+<p>:</p>
+<p>prompt</p>
+<p>}</p>
+<p>]</p>
+<p>text</p>
+<p>=</p>
+<p>tokenizer</p>
+<p>.</p>
+<p>apply_chat_template</p>
+<p>(</p>
+<p>messages</p>
+<p>,</p>
+<p>tokenize</p>
+<p>=</p>
+<p>False</p>
+<p>,</p>
+<p>add_generation_prompt</p>
+<p>=</p>
+<p>True</p>
+<p>)</p>
+<p>model_inputs</p>
+<p>=</p>
+<p>tokenizer</p>
+<p>([</p>
+<p>text</p>
+<p>],</p>
+<p>return_tensors</p>
+<p>=</p>
+<p>"pt"</p>
+<p>)</p>
+<p>.</p>
+<p>to</p>
+<p>(</p>
+<p>model</p>
+<p>.</p>
+<p>device</p>
+<p>)</p>
+<p>generated_ids</p>
+<p>=</p>
+<p>model</p>
+<p>.</p>
+<p>generate</p>
+<p>(</p>
+<p>**</p>
+<p>model_inputs</p>
+<p>,</p>
+<p>max_new_tokens</p>
+<p>=</p>
+<p>32768</p>
+<p>)</p>
+<p>generated_ids</p>
+<p>=</p>
+<p>[</p>
+<p>output_ids</p>
+<p>[</p>
+<p>len</p>
+<p>(</p>
+<p>input_ids</p>
+<p>):]</p>
+<p>for</p>
+<p>input_ids</p>
+<p>,</p>
+<p>output_ids</p>
+<p>in</p>
+<p>zip</p>
+<p>(</p>
+<p>model_inputs</p>
+<p>.</p>
+<p>input_ids</p>
+<p>,</p>
+<p>generated_ids</p>
+<p>)</p>
+<p>]</p>
+<p>response</p>
+<p>=</p>
+<p>tokenizer</p>
+<p>.</p>
+<p>batch_decode</p>
+<p>(</p>
+<p>generated_ids</p>
+<p>,</p>
+<p>skip_special_tokens</p>
+<p>=</p>
+<p>True</p>
+<p>)[</p>
+<p>0</p>
+<p>]</p>
+<p>print</p>
+<p>(</p>
+<p>response</p>
+<p>)</p>
+<p>from</p>
+<p>openai</p>
+<p>import</p>
+<p>OpenAI</p>
+<p>import</p>
+<p>os</p>
+<h1>Initialize OpenAI client</h1>
+<p>client</p>
+<p>=</p>
+<p>OpenAI</p>
+<p>(</p>
+<h1>If the environment variable is not configured, replace with your API Key: api_key="sk-xxx"</h1>
+<h1>How to get an API Key：https://help.aliyun.com/zh/model-studio/developer-reference/get-api-key</h1>
+<p>api_key</p>
+<p>=</p>
+<p>os</p>
+<p>.</p>
+<p>getenv</p>
+<p>(</p>
+<p>"DASHSCOPE_API_KEY"</p>
+<p>),</p>
+<p>base_url</p>
+<p>=</p>
+<p>"https://dashscope.aliyuncs.com/compatible-mode/v1"</p>
+<p>)</p>
+<p>reasoning_content</p>
+<p>=</p>
+<p>""</p>
+<p>content</p>
+<p>=</p>
+<p>""</p>
+<p>is_answering</p>
+<p>=</p>
+<p>False</p>
+<p>completion</p>
+<p>=</p>
+<p>client</p>
+<p>.</p>
+<p>chat</p>
+<p>.</p>
+<p>completions</p>
+<p>.</p>
+<p>create</p>
+<p>(</p>
+<p>model</p>
+<p>=</p>
+<p>"qwq-32b"</p>
+<p>,</p>
+<p>messages</p>
+<p>=</p>
+<p>[</p>
+<p>{</p>
+<p>"role"</p>
+<p>:</p>
+<p>"user"</p>
+<p>,</p>
+<p>"content"</p>
+<p>:</p>
+<p>"Which is larger, 9.9 or 9.11?"</p>
+<p>}</p>
+<p>],</p>
+<p>stream</p>
+<p>=</p>
+<p>True</p>
+<p>,</p>
+<h1>Uncomment the following line to return token usage in the last chunk</h1>
+<h1>stream_options={</h1>
+<h1>"include_usage": True</h1>
+<h1>}</h1>
+<p>)</p>
+<p>print</p>
+<p>(</p>
+<p>"</p>
+<p>\n</p>
+<p>"</p>
+<p>+</p>
+<p>"="</p>
+<p>*</p>
+<p>20</p>
+<p>+</p>
+<p>"reasoning content"</p>
+<p>+</p>
+<p>"="</p>
+<p>*</p>
+<p>20</p>
+<p>+</p>
+<p>"</p>
+<p>\n</p>
+<p>"</p>
+<p>)</p>
+<p>for</p>
+<p>chunk</p>
+<p>in</p>
+<p>completion</p>
+<p>:</p>
+<h1>If chunk.choices is empty, print usage</h1>
+<p>if</p>
+<p>not</p>
+<p>chunk</p>
+<p>.</p>
+<p>choices</p>
+<p>:</p>
+<p>print</p>
+<p>(</p>
+<p>"</p>
+<p>\n</p>
+<p>Usage:"</p>
+<p>)</p>
+<p>print</p>
+<p>(</p>
+<p>chunk</p>
+<p>.</p>
+<p>usage</p>
+<p>)</p>
+<p>else</p>
+<p>:</p>
+<p>delta</p>
+<p>=</p>
+<p>chunk</p>
+<p>.</p>
+<p>choices</p>
+<p>[</p>
+<p>0</p>
+<p>]</p>
+<p>.</p>
+<p>delta</p>
+<h1>Print reasoning content</h1>
+<p>if</p>
+<p>hasattr</p>
+<p>(</p>
+<p>delta</p>
+<p>,</p>
+<p>'reasoning_content'</p>
+<p>)</p>
+<p>and</p>
+<p>delta</p>
+<p>.</p>
+<p>reasoning_content</p>
+<p>is</p>
+<p>not</p>
+<p>None</p>
+<p>:</p>
+<p>print</p>
+<p>(</p>
+<p>delta</p>
+<p>.</p>
+<p>reasoning_content</p>
+<p>,</p>
+<p>end</p>
+<p>=</p>
+<p>''</p>
+<p>,</p>
+<p>flush</p>
+<p>=</p>
+<p>True</p>
+<p>)</p>
+<p>reasoning_content</p>
+<p>+=</p>
+<p>delta</p>
+<p>.</p>
+<p>reasoning_content</p>
+<p>else</p>
+<p>:</p>
+<p>if</p>
+<p>delta</p>
+<p>.</p>
+<p>content</p>
+<p>!=</p>
+<p>""</p>
+<p>and</p>
+<p>is_answering</p>
+<p>is</p>
+<p>False</p>
+<p>:</p>
+<p>print</p>
+<p>(</p>
+<p>"</p>
+<p>\n</p>
+<p>"</p>
+<p>+</p>
+<p>"="</p>
+<p>*</p>
+<p>20</p>
+<p>+</p>
+<p>"content"</p>
+<p>+</p>
+<p>"="</p>
+<p>*</p>
+<p>20</p>
+<p>+</p>
+<p>"</p>
+<p>\n</p>
+<p>"</p>
+<p>)</p>
+<p>is_answering</p>
+<p>=</p>
+<p>True</p>
+<h1>Print content</h1>
+<p>print</p>
+<p>(</p>
+<p>delta</p>
+<p>.</p>
+<p>content</p>
+<p>,</p>
+<p>end</p>
+<p>=</p>
+<p>''</p>
+<p>,</p>
+<p>flush</p>
+<p>=</p>
+<p>True</p>
+<p>)</p>
+<p>content</p>
+<p>+=</p>
+<p>delta</p>
+<p>.</p>
+<p>content</p>
+<p>Future Work</p>
+<h1></h1>
+<p>This marks Qwen’s initial step in scaling Reinforcement Learning (RL) to enhance reasoning capabilities. Through this journey, we have not only witnessed the immense potential of scaled RL but also recognized the untapped possibilities within pretrained language models. As we work towards developing the next generation of Qwen, we are confident that combining stronger foundation models with RL powered by scaled computational resources will propel us closer to achieving Artificial General Intelligence (AGI). Additionally, we are actively exploring the integration of agents with RL to enable long-horizon reasoning, aiming to unlock greater intelligence with inference time scaling.</p>
+            </div>
+            <div class="source">Source: <a href="https://qwenlm.github.io/blog/qwq-32b/" target="_blank">Hacker News</a></div>
+        </article>
+        <div class="affiliate">
+            
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Automated Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>

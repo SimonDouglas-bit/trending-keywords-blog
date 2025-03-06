@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exploring the Paramilitary Leaks - My Automated Blog</title>
+    <meta name="description" content="&lt;a href=&quot;https://news.ycombinator.com/item?id=43273034&quot;&gt;Comments&lt;/a&gt;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">My Automated Blog</a></h1>
+        <p>Automatically aggregated content about interesting topics</p>
+    </header>
+    <main>
+        <article>
+            <h1>Exploring the Paramilitary Leaks</h1>
+            <div class="meta">Posted on March 05, 2025 | Topics: python, programming, technology</div>
+            <div class="content">
+                <p>Exploring the Paramilitary Leaks</p>
+<p>Drone footage of militia training, found in the Paramilitary Leaks dataset</p>
+<p>In January, Distributed Denial of Secrets </p>
+<p>published</p>
+<p>over 200 gigabytes of chat logs and recordings from paramilitary groups and militias, including American Patriots Three Percent (APIIII) and the Oath Keepers. The files were obtained by John Williams, a wilderness survival trainer who spent </p>
+<p>years deep undercover infiltrating the American militia movement</p>
+<p>– if you haven't read Joshua Kaplan's reporting on this in ProPublica, I recommend it.</p>
+<p>It's come to my attention that this dataset is rather challenging for journalists and researchers to wrap their heads around. I wrote a book, </p>
+<p>Hacks, Leaks, and Revelations</p>
+<p>, aimed at teaching journalists and researchers how to analyze datasets just like this. I'm also quite interested in what's in here myself – this is one of the only datasets I've downloaded since I left The Intercept, actually. So, I figured I'd write a series of posts publicly exploring this dataset and sharing my findings.</p>
+<p>I'd love for this to be an interactive experience!</p>
+<p>If you're interested in this dataset, please </p>
+<p>subscribe</p>
+<p>to get these posts emailed directly to your inbox (I </p>
+<p>just converted</p>
+<p>my blog into a newsletter). If you're subscribed, you can post comments. If you have questions about the dataset or my finding or anything else, or if you have suggestions on what parts of it to dig into, post comments and I'll engage. If you want to support my work, considering becoming a paid supporter.</p>
+<p>Sign up for micahflee</p>
+<p>Hi, I'm Micah. I'm a coder, a journalist, and I help people stay private and secure.</p>
+<p>Subscribe</p>
+<pre><code>            Email sent! Check your inbox to complete your signup.
+</code></pre>
+<p>No spam. Unsubscribe anytime.</p>
+<p>Accessing the dataset</p>
+<p>You can find instructions on how to access this dataset on the </p>
+<p>Paramilitary Leaks page</p>
+<p>of the DDoSecrets website. Specifically:</p>
+<p>If you want to use BitTorrent, you can download the </p>
+<p>torrent file</p>
+<p>or use a </p>
+<p>magnet link</p>
+<p>.</p>
+<p>If you want to download directly with a web browser or with </p>
+<p>curl</p>
+<p>, the data is available at: </p>
+<p>https://data.ddosecrets.com/Paramilitary Leaks/Paramilitary Leaks/</p>
+<p>If you want to search the data in Aleph (an excellent tool that lets you index datasets and then search them for keywords), DDoSecrets has indexed it here in the Library of Leaks: </p>
+<p>https://search.libraryofleaks.org/datasets/59</p>
+<p>If you want to download this locally, I recommend getting a dedicated USB hard drive for working with datasets.</p>
+<p>💡</p>
+<p>A lot of what I just mentioned is covered in my book – which, by the way, is available online for free under a Creative Commons license. For further reading, here are some pertinent sections:</p>
+<p>Chapter 1 - Exercise 1-2: Encrypt a USB Disk</p>
+<p>Chapter 2 - Distributed Denial of Secrets</p>
+<p>Chapter 2 - Download Datasets with BitTorrent</p>
+<p>Chapter 5 - Introducing Aleph</p>
+<p>A brief tour of the data</p>
+<p>I still haven't gone through much of this data myself so this tour is far from complete. But here's what I can tell you so far.</p>
+<p>After downloading all of the compressed files of this dataset and extracting them with 7-zip, you'll end up with the following folders:</p>
+<p>Folders in the Paramilitary Leaks dataset</p>
+<p>If you click around these folders you'll find several folders that start with </p>
+<p>ChatExport_</p>
+<p>followed by a date, plus a smattering of screenshots and documents. For example, here's what's in the </p>
+<p>AP III State Leaders Chat</p>
+<p>folder:</p>
+<p>Files in the </p>
+<p>AP III State Leaders Chat</p>
+<p>folder</p>
+<p>If you look inside the </p>
+<p>ChatExport_</p>
+<p>folders, they have one or more </p>
+<p>messages.html</p>
+<p>files, along with several folders for files, photos, videos, voice messages, and so on. When you open a </p>
+<p>messages.html</p>
+<p>file in a browser, it becomes clear that these are exports of Telegram channels. Here's a screenshot from </p>
+<p>AP III State Leaders Chat/ChatExport_2023-03-29/messages5.html</p>
+<p>:</p>
+<p>AP III State Leaders chat logs from March 2023, including a voice memo</p>
+<p>The dataset is, essentially, tons of exports of different Telegram channels from different times, complete with all of the stuff uploaded to those channels. There's a </p>
+<p>lot</p>
+<p>in there.</p>
+<p>For example, I write a little script to find the biggest files and I discovered multiple full-length films in there: several conspiracy documentaries like </p>
+<p>Cages - Epic Human Trafficking Truth (2023).mp4</p>
+<p>, </p>
+<p>PlanD3 - Ivermectin The Truth_1080.mp4</p>
+<p>, </p>
+<p>Fake News A True History 2019.1080p.mp4</p>
+<p>, as well as </p>
+<p>The Passion of the Christ - Full Movie.mp4</p>
+<p>.</p>
+<p>There are tons of recordings of Zoom calls. Tons of voice messages. Tons of Office documents. Random drone footage from their gun practice. And so much more that I haven't dug into yet.</p>
+<p>A still from </p>
+<p>AP III State Leaders Chat/ChatExport_2023-03-28/video_files/ftx 3.mp4</p>
+<p>This is why this dataset is hard to wrap your head around: there's just </p>
+<p>sooo much</p>
+<p>here. It would take a ridiculous amount of time to try to manually read through it all. Also, at a glance at least, it appears that the bulk of it is idle chatter and conspiracy nonsense, presumably with evidence of crimes sprinkled in here or there.</p>
+<p>Searching the data with Aleph</p>
+<p>A good way to get started, without even having to download the dataset, is to search it using the </p>
+<p>Library of Leaks Aleph server</p>
+<p>. This obviously won't search everything – it won't include anything said in these Zoom meeting recordings or voice messages, for example. But it's a great starting place.</p>
+<p>Just like other Americans, militia wingnuts use services like PayPal. When I search for "paypal" there are 199 results. Here's </p>
+<p>one of the top results</p>
+<p>, a screenshot with someone selling AP III hats, with PayPal and Cashapp usernames:</p>
+<p>The AP III hat says "Three Percenter, We Are Everywhere". It costs $35, and you can pay with @ScotSeddon on PayPal or $ScotSeddon in Cashapp.</p>
+<p>Who is Scot Seddon? I could do outside research – like searching DuckDuckGo and Google for </p>
+<p>"Scot Seddon"</p>
+<p>and the username </p>
+<p>scotseddon</p>
+<p>– but first, I'm going to search the dataset itself. When I search Aleph for his name, the first result is the file </p>
+<p>AP III State Leaders Chat/ChatExport_2023-03-20/files/1_4902439503181906326.pdf</p>
+<p>:</p>
+<p>At the top of the document it says, "Statement by Scot Seddon founder of APIII"</p>
+<p>Ahh, so he's the founder of American Patriot Three Percent, and here's his statement disavowing the violence from January 6, 2021. Looking at the metadata of this PDF, it was created on January 16, 2021. I wonder what Scot thinks about January 6 these days, after Trump was re-elected in 2024.</p>
+<p>In all likelihood, I can find out </p>
+<p>exactly</p>
+<p>what he thinks, because he probably posted about it to his militia buddies in Telegram, and it's probably in this dataset. The problem is, there's no easy way to quickly filter out messages from him, or even to tell which of these exported Telegram channels he was part of. I think that will be the first problem I solve.</p>
+<p>For example, </p>
+<p>here's</p>
+<p>one of the Aleph search results for "Scot Seddon":</p>
+<p>Trying to view a Telegram export in Aleph doesn't work too well</p>
+<p>This is impossible to read from within Aleph. So, I'll proceed by opening </p>
+<p>AP III National/ChatExport_2023-03-12 (3)/messages77.html</p>
+<p>from my downloaded version of the data. (And yes, this is page 77 of messages in this exported Telegram channel.)</p>
+<p>Reading the chats in a browser</p>
+<p>This is much more readable – but still, I don't think I can bring myself to sit down and read 77 pages of these messages right now. And that's just this one export of this one Telegram channel.</p>
+<p>Next steps</p>
+<p>This dataset has lots of exported Telegram channels in HTML format. And while it's missing a lot of useful data (like, Telegram usernames or IDs), the HTML actually does include quite a bit:</p>
+<p>Using Firefox developer tools to inspect a message</p>
+<p>As you can see in this screenshot, the </p>
+<p>div</p>
+<p>that contains this message includes the timestamp of the post, the user's display name, and the text of the post. The dataset also includes images, audio files, and other types of attachments too associated with each message.</p>
+<p>So given that, here's the challenge: write a script that will browse through the dataset, loading every HTML file in every exported Telegram chat, extract all of the messages, and save them to a single SQL database.</p>
+<p>💡</p>
+<p>My book not only teaches Python programming, it also walks you through the process of writing scripts like this, step-by-step. For further reading, check out:</p>
+<p>Chapter 7: An Introduction to Python</p>
+<p>Chapter 8: Working with Data in Python</p>
+<p>Chapter 11: Parler, the January 6 Insurrection, and the JSON File Format</p>
+<p>Chapter 12: Epik Fail, Extremism Research, and SQL Databases</p>
+<p>Here's probably how I'll do it:</p>
+<p>Create a SQLite schema, probably using </p>
+<p>SQLAlchemy</p>
+<p>, for storing Telegram messages. Each message should include things like the timestamp, display name, text, and the filename of the file it was found in.</p>
+<p>Recursively loop through all folders in the dataset finding all folders that start with </p>
+<p>ChatExport_</p>
+<p>– these are the chat exports.</p>
+<p>In each of those, loop through all the files looking for </p>
+<p>message*.html</p>
+<p>– these are where the messages are.</p>
+<p>For each of those, load the HTML file and parse it using a library like </p>
+<p>Beautiful Soup</p>
+<p>. Loop through the messages, extract each piece of information, and then insert the message into the SQLite database.</p>
+<p>At the end, I'll have a single database of Telegram messages from the whole dataset. I'll be able to query it to, for example, show me all messages from Scot Seddon sorted chronologically. This will make it simple to see what he was saying in the lead-up to January 6, immediately after January 6, and then what he's saying about Trump these days, after he was re-elected.</p>
+<p>Okay, that's it for this installment! For next time, I'll try to have this script written. My plan is to publish it on GitHub so you can use it to generate your own SQL database based on HTML Telegram exports like this.</p>
+<p>If you're a programmer and you have some time to give it a shot yourself, by all means do it and let me know!</p>
+<p>Remember to </p>
+<p>subscribe to my newsletter</p>
+<p>. And if you want to support my work, sign up as a paid supporter or buy a copy of </p>
+<p>Hacks, Leaks, and Revelations: The Art of Analyzing Hacked and Leaked Data</p>
+<p>.</p>
+<p>And please consider </p>
+<p>donating to Distributed Denial of Secrets</p>
+<p>. It's a tiny, scrappy, underfunded non-profit collective that also runs the world's largest public library of hacked and leaked datasets like this one. They could really use your support.</p>
+<p>Micah Lee</p>
+<p>05 Mar 2025</p>
+<p>← Previous</p>
+            </div>
+            <div class="source">Source: <a href="https://micahflee.com/exploring-the-paramilitary-leaks/" target="_blank">Hacker News</a></div>
+        </article>
+        <div class="affiliate">
+            
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Automated Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
