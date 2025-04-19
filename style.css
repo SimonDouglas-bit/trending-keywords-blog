@@ -349,4 +349,138 @@
             .internal-link:hover {
                 text-decoration: none;
             }
+
+            /* Expert analysis styling */
+            .expert-analysis {
+                background-color: #f8f9fa;
+                padding: 25px;
+                margin: 30px 0;
+                border-left: 4px solid #4285f4;
+                border-radius: 4px;
+            }
+            
+            .expert-analysis h2 {
+                color: #4285f4;
+                margin-bottom: 20px;
+            }
+            
+            .expert-analysis h3 {
+                margin-top: 20px;
+                margin-bottom: 15px;
+                color: #333;
+            }
+            
+            .expert-analysis ul, .expert-analysis ol {
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .expert-analysis li {
+                margin-bottom: 12px;
+                line-height: 1.6;
+            }
+            
+            /* Table of contents styling */
+            .table-of-contents {
+                background-color: #f8f9fa;
+                padding: 20px;
+                margin: 20px 0;
+                border: 1px solid #e0e0e0;
+                border-radius: 4px;
+            }
+            
+            .table-of-contents h2 {
+                margin-top: 0;
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+            }
+            
+            .table-of-contents ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            .table-of-contents li {
+                margin-bottom: 8px;
+                line-height: 1.4;
+            }
+            
+            .table-of-contents a {
+                text-decoration: none;
+                color: #1a73e8;
+            }
+            
+            .table-of-contents a:hover {
+                text-decoration: underline;
+            }
+            
+            .toc-h2 {
+                margin-left: 0;
+            }
+            
+            .toc-h3 {
+                margin-left: 20px;
+                font-size: 0.95em;
+            }
+            
+            /* Attribution styling improvements */
+            .attribution {
+                background-color: #e8f0fe;
+                padding: 15px;
+                margin: 20px 0;
+                border-left: 4px solid #1a73e8;
+                border-radius: 4px;
+            }
+            
+            /* Article content improvements */
+            article {
+                line-height: 1.8;
+                font-size: 18px;
+            }
+            
+            article p {
+                margin-bottom: 20px;
+            }
+            
+            article h2 {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                font-size: 24px;
+                color: #333;
+            }
+            
+            article h3 {
+                margin-top: 30px;
+                margin-bottom: 15px;
+                font-size: 20px;
+                color: #444;
+            }
+            
+            article blockquote {
+                border-left: 4px solid #ddd;
+                padding: 0 15px;
+                color: #666;
+                margin: 20px 0;
+            }
+            
+            /* AdSense-ready content spacing */
+            .content {
+                margin: 30px 0;
+                padding: 0 10px;
+            }
+            
+            /* Improve readability with better fonts */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: #333;
+                line-height: 1.8;
+            }
+            
+            /* Responsive article width for better readability */
+            @media (min-width: 768px) {
+                article {
+                    max-width: 760px;
+                    margin: 0 auto;
+                }
+            }
             
