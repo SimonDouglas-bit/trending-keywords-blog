@@ -1,13 +1,272 @@
 <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>digital marketing - Trending Keywords Blog - Articles about digital marketing</title>
-                    <meta name="description" content="Articles about digital marketing">
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <link rel="stylesheet" href="../style.css">
-                    
-                
+<html lang="en">
+<head>
+    <title>digital marketing - Trending Keywords Blog - Articles about digital marketing</title>
+    <meta name="description" content="Articles about digital marketing">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Base styles and CSS reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: #1d4ed8;
+        }
+        
+        /* Layout containers */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: #fff;
+            padding: 50px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 650px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* Stats bar */
+        .stats-bar {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stat-item i {
+            color: #3b82f6;
+            font-size: 1.2rem;
+        }
+        
+        .stat-item span {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        /* Main content area */
+        main {
+            padding: 40px 0;
+        }
+        
+        .section-header {
+            margin-bottom: 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-right: 15px;
+        }
+        
+        .section-header::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: #e5e7eb;
+        }
+        
+        /* Post grid layout */
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        /* Post card styling */
+        .post-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .post-card h2 {
+            font-size: 1.25rem;
+            padding: 20px 25px 10px;
+            line-height: 1.4;
+        }
+        
+        .post-card h2 a {
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+        
+        .post-card h2 a:hover {
+            color: #3b82f6;
+        }
+        
+        .post-card .meta {
+            color: #64748b;
+            font-size: 0.85rem;
+            padding: 0 25px 15px;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-card .meta::before {
+            content: "📅";
+            margin-right: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .post-card p {
+            padding: 15px 25px;
+            color: #475569;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .post-card .read-more {
+            display: inline-block;
+            margin: 0 25px 20px;
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: #fff;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            align-self: flex-start;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+        }
+        
+        .post-card .read-more:hover {
+            background-color: #1d4ed8;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Ad spaces */
+        .ad-container {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        /* Footer styling */
+        footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .posts {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .stats-container {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .posts {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 30px 0;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+    
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,144 +294,154 @@
 </script>
 
 </head>
-                <body>
-                    <nav>
+<body>
+    <nav>
         <ul>
             <li><a href="https://simondouglas-bit.github.io/github.io/index.html">Home</a></li>
             <li><a href="pages/disclaimer.html">Disclaimer</a></li>
         </ul>
         </nav>
 <header>
-                        <h1>digital marketing - Trending Keywords Blog</h1>
-                        <p>Articles about digital marketing</p>
-                    </header>
-                    <main>
-                        <div class="posts">
-                            
+        <div class="container">
+            <h1>digital marketing - Trending Keywords Blog</h1>
+            <p>Articles about digital marketing</p>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <i>🔍</i>
+                <span>Updated Daily</span>
+            </div>
+            <div class="stat-item">
+                <i>📊</i>
+                <span>Data-Driven Insights</span>
+            </div>
+            <div class="stat-item">
+                <i>📈</i>
+                <span>SEO Performance Tips</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <!-- Top ad placement -->
+            <div class="ad-container">
+                <!-- AdSense code will go here -->
+            </div>
+            
+            <div class="section-header">
+                <h2>Latest Keyword Trends</h2>
+            </div>
+            
+            <div class="posts">
+                
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142009-how-customer-journey-seo-turns-clicks-into-convers.html">How Customer Journey SEO Turns Clicks Into Conversions</a></h2>
+                    <h2><a href="../posts/20250420222148-how-customer-journey-seo-turns-clicks-into-convers.html">How Customer Journey SEO Turns Clicks Into Conversions</a></h2>
                     <div class="meta">Posted on Tue, 15 Apr 2025 11:00:00 GMT</div>
                     <p><div class="hs-featured-image-wrapper"> 
  <a class="hs-featured-image-link" href="https://blog.hubspot.com/marketing/how-to-tailor-your-seo-strategy-to-your-customer-journey" title=""> <img alt="woman...</p>
-                    <a href="../posts/20250420142009-how-customer-journey-seo-turns-clicks-into-convers.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222148-how-customer-journey-seo-turns-clicks-into-convers.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420141953-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
+                    <h2><a href="../posts/20250420222148-how-customer-journey-seo-turns-clicks-into-convers.html">How Customer Journey SEO Turns Clicks Into Conversions</a></h2>
+                    <div class="meta">Posted on Tue, 15 Apr 2025 11:00:00 GMT</div>
+                    <p><div class="hs-featured-image-wrapper"> 
+ <a class="hs-featured-image-link" href="https://blog.hubspot.com/marketing/how-to-tailor-your-seo-strategy-to-your-customer-journey" title=""> <img alt="woman...</p>
+                    <a href="../posts/20250420222148-how-customer-journey-seo-turns-clicks-into-convers.html" class="read-more">Read More</a>
+                </div>
+                
+                <div class="post-card">
+                    <h2><a href="../posts/20250420222138-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
                     <div class="meta">Posted on September 10, 2021</div>
                     <p><p>In SEO, there are three main “bosses” with different needs: your business, your searchers, and your search engines. How do you answer to all of them?</p><img height="1" src="https://feedpress.me/li...</p>
-                    <a href="../posts/20250420141953-the-three-bosses-of-seo.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222138-the-three-bosses-of-seo.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420141955-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
-                    <div class="meta">Posted on September 10, 2021</div>
-                    <p><p>In SEO, there are three main “bosses” with different needs: your business, your searchers, and your search engines. How do you answer to all of them?</p><img height="1" src="https://feedpress.me/li...</p>
-                    <a href="../posts/20250420141955-the-three-bosses-of-seo.html" class="read-more">Read More</a>
-                </div>
-                
-                <div class="post-card">
-                    <h2><a href="../posts/20250420141958-how-to-calculate-your-seo-roi-using-google-analyti.html">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
+                    <h2><a href="../posts/20250420222142-how-to-calculate-your-seo-roi-using-google-analyti.html">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
                     <div class="meta">Posted on September 06, 2021</div>
                     <p><p>Measuring ROI for your SEO efforts involves two factors: KPIs and the cost of your current SEO campaigns. With GA, you can pinpoint where your audience is coming from, set goals to stay on track, a...</p>
-                    <a href="../posts/20250420141958-how-to-calculate-your-seo-roi-using-google-analyti.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222142-how-to-calculate-your-seo-roi-using-google-analyti.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142000-how-to-use-stat-to-find-seo-opportunities-at-scale.html">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
+                    <h2><a href="../posts/20250420222144-how-to-use-stat-to-find-seo-opportunities-at-scale.html">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
                     <div class="meta">Posted on September 03, 2021</div>
                     <p><p>Today, Cyrus explains how powerful STAT can be when you’re trying to discover SEO opportunities on a massive scale.</p><img height="1" src="https://feedpress.me/link/9375/14729254.gif" width="1" /></p>
-                    <a href="../posts/20250420142000-how-to-use-stat-to-find-seo-opportunities-at-scale.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222144-how-to-use-stat-to-find-seo-opportunities-at-scale.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142002-how-to-use-stat-to-find-seo-opportunities-at-scale.html">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
+                    <h2><a href="../posts/20250420222145-how-to-use-stat-to-find-seo-opportunities-at-scale.html">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
                     <div class="meta">Posted on September 03, 2021</div>
                     <p><p>Today, Cyrus explains how powerful STAT can be when you’re trying to discover SEO opportunities on a massive scale.</p><img height="1" src="https://feedpress.me/link/9375/14729254.gif" width="1" /></p>
-                    <a href="../posts/20250420142002-how-to-use-stat-to-find-seo-opportunities-at-scale.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222145-how-to-use-stat-to-find-seo-opportunities-at-scale.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142004-seo-for-financial-services-how-to-build-trust-and-.html">SEO for Financial Services: How to Build Trust and Rank Higher in 2025</a></h2>
-                    <div class="meta">Posted on March 31, 2025</div>
-                    <p>The tactics are broadly applicable, but how you apply them will depend on your business model. A local firm might focus on community-driven content and local SEO, while a digital-first platform might ...</p>
-                    <a href="../posts/20250420142004-seo-for-financial-services-how-to-build-trust-and-.html" class="read-more">Read More</a>
-                </div>
-                
-                <div class="post-card">
-                    <h2><a href="../posts/20250420142004-competitor-analysis-in-local-seo-and-how-to-gain-a.html">Competitor Analysis In Local SEO And How To Gain An Edge via @sejournal, @JRiddall</a></h2>
+                    <h2><a href="../posts/20250420222146-competitor-analysis-in-local-seo-and-how-to-gain-a.html">Competitor Analysis In Local SEO And How To Gain An Edge via @sejournal, @JRiddall</a></h2>
                     <div class="meta">Posted on April 18, 2025</div>
                     <p><p>Outperform local competitors by identifying gaps, refining strategies, and driving more targeted traffic through smarter competition research.</p>
 <p>The post <a href="https://www.searchenginejourn...</p>
-                    <a href="../posts/20250420142004-competitor-analysis-in-local-seo-and-how-to-gain-a.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222146-competitor-analysis-in-local-seo-and-how-to-gain-a.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142005-competitor-analysis-in-local-seo-and-how-to-gain-a.html">Competitor Analysis In Local SEO And How To Gain An Edge via @sejournal, @JRiddall</a></h2>
-                    <div class="meta">Posted on April 18, 2025</div>
-                    <p><p>Outperform local competitors by identifying gaps, refining strategies, and driving more targeted traffic through smarter competition research.</p>
-<p>The post <a href="https://www.searchenginejourn...</p>
-                    <a href="../posts/20250420142005-competitor-analysis-in-local-seo-and-how-to-gain-a.html" class="read-more">Read More</a>
-                </div>
-                
-                <div class="post-card">
-                    <h2><a href="../posts/20250420142006-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html">SEOFOMO Survey Shows How Ecommerce SEOs Use AI In 2025 via @sejournal, @martinibuster</a></h2>
+                    <h2><a href="../posts/20250420222147-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html">SEOFOMO Survey Shows How Ecommerce SEOs Use AI In 2025 via @sejournal, @martinibuster</a></h2>
                     <div class="meta">Posted on April 17, 2025</div>
                     <p><p>Survey shows increasing integration of AI into ecommerce workflows for wins in conversion optimization, content, and technical SEO</p>
 <p>The post <a href="https://www.searchenginejournal.com/seofo...</p>
-                    <a href="../posts/20250420142006-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222147-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142007-how-to-get-a-job-in-digital-marketing-in-2025.html">How To Get A Job In Digital Marketing In 2025</a></h2>
+                    <h2><a href="../posts/20250420222147-how-to-get-a-job-in-digital-marketing-in-2025.html">How To Get A Job In Digital Marketing In 2025</a></h2>
                     <div class="meta">Posted on April 17, 2025</div>
                     <p><p>Facing challenges in your job search? Explore strategies to help you secure a digital marketing job despite tough times.</p>
 <p>The post <a href="https://www.searchenginejournal.com/how-to-get-a-jo...</p>
-                    <a href="../posts/20250420142007-how-to-get-a-job-in-digital-marketing-in-2025.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222147-how-to-get-a-job-in-digital-marketing-in-2025.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142008-how-to-get-a-job-in-digital-marketing-in-2025.html">How To Get A Job In Digital Marketing In 2025</a></h2>
-                    <div class="meta">Posted on April 17, 2025</div>
-                    <p><p>Facing challenges in your job search? Explore strategies to help you secure a digital marketing job despite tough times.</p>
-<p>The post <a href="https://www.searchenginejournal.com/how-to-get-a-jo...</p>
-                    <a href="../posts/20250420142008-how-to-get-a-job-in-digital-marketing-in-2025.html" class="read-more">Read More</a>
-                </div>
-                
-                <div class="post-card">
-                    <h2><a href="../posts/20250420142008-how-to-write-seo-reports-that-get-attention-from-y.html">How To Write SEO Reports That Get Attention From Your CMO via @sejournal, @AdamHeitzman</a></h2>
+                    <h2><a href="../posts/20250420222148-how-to-write-seo-reports-that-get-attention-from-y.html">How To Write SEO Reports That Get Attention From Your CMO via @sejournal, @AdamHeitzman</a></h2>
                     <div class="meta">Posted on April 16, 2025</div>
                     <p><p>Transform your reports with insights that matter. Discover how to create impactful SEO client reports that drive business results. </p>
 <p>The post <a href="https://www.searchenginejournal.com/seo-...</p>
-                    <a href="../posts/20250420142008-how-to-write-seo-reports-that-get-attention-from-y.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222148-how-to-write-seo-reports-that-get-attention-from-y.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142009-how-to-write-seo-reports-that-get-attention-from-y.html">How To Write SEO Reports That Get Attention From Your CMO via @sejournal, @AdamHeitzman</a></h2>
+                    <h2><a href="../posts/20250420222148-how-to-write-seo-reports-that-get-attention-from-y.html">How To Write SEO Reports That Get Attention From Your CMO via @sejournal, @AdamHeitzman</a></h2>
                     <div class="meta">Posted on April 16, 2025</div>
                     <p><p>Transform your reports with insights that matter. Discover how to create impactful SEO client reports that drive business results. </p>
 <p>The post <a href="https://www.searchenginejournal.com/seo-...</p>
-                    <a href="../posts/20250420142009-how-to-write-seo-reports-that-get-attention-from-y.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222148-how-to-write-seo-reports-that-get-attention-from-y.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250420142003-geo-llmo-aeo-its-all-just-seo.html">GEO, LLMO, AEO… It’s All Just SEO</a></h2>
+                    <h2><a href="../posts/20250420222145-geo-llmo-aeo-its-all-just-seo.html">GEO, LLMO, AEO… It’s All Just SEO</a></h2>
                     <div class="meta">Posted on April 07, 2025</div>
                     <p>So far, it doesn’t seem like it. There seems to be massive overlap in SEO and GEO, such that it doesn’t seem useful to consider them distinct processes. The things that contribute to good visibility i...</p>
-                    <a href="../posts/20250420142003-geo-llmo-aeo-its-all-just-seo.html" class="read-more">Read More</a>
+                    <a href="../posts/20250420222145-geo-llmo-aeo-its-all-just-seo.html" class="read-more">Read More</a>
                 </div>
                 
-                <div class="post-card">
-                    <h2><a href="../posts/20250420142003-geo-llmo-aeo-its-all-just-seo.html">GEO, LLMO, AEO… It’s All Just SEO</a></h2>
-                    <div class="meta">Posted on April 07, 2025</div>
-                    <p>So far, it doesn’t seem like it. There seems to be massive overlap in SEO and GEO, such that it doesn’t seem useful to consider them distinct processes. The things that contribute to good visibility i...</p>
-                    <a href="../posts/20250420142003-geo-llmo-aeo-its-all-just-seo.html" class="read-more">Read More</a>
-                </div>
-                
-                        </div>
-                    </main>
-                    <footer>
-                        <p>&copy; 2025 digital marketing - Trending Keywords Blog. All rights reserved.</p>
-                    </footer>
-                </body>
-                </html>
+            </div>
+            
+            <!-- Bottom ad placement -->
+            <div class="ad-container">
+                <!-- AdSense code will go here -->
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 digital marketing - Trending Keywords Blog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
