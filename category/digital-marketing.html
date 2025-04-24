@@ -17,17 +17,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f5f7fa;
+            background-color: #f0f2f5;
         }
         
         a {
-            color: #3b82f6;
+            color: #1a73e8;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s ease;
         }
         
         a:hover {
-            color: #1d4ed8;
+            color: #174ea6;
         }
         
         /* Layout containers */
@@ -39,10 +39,10 @@
         
         /* Header styles */
         header {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #4285f4 0%, #0f62fe 100%);
             color: #fff;
-            padding: 50px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
         header .container {
@@ -53,25 +53,30 @@
         }
         
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 2.6rem;
+            margin-bottom: 12px;
             font-weight: 700;
             letter-spacing: -0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 650px;
             opacity: 0.9;
             font-weight: 300;
+            line-height: 1.5;
         }
         
         /* Stats bar */
         .stats-bar {
             background-color: #fff;
-            padding: 15px 0;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 16px 0;
+            border-bottom: 1px solid #e1e4e8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .stats-container {
@@ -84,26 +89,27 @@
         .stat-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .stat-item i {
-            color: #3b82f6;
+            color: #4285f4;
             font-size: 1.2rem;
         }
         
         .stat-item span {
-            font-size: 0.9rem;
-            color: #6b7280;
+            font-size: 0.95rem;
+            color: #5f6368;
+            font-weight: 500;
         }
         
         /* Main content area */
         main {
-            padding: 40px 0;
+            padding: 40px 0 60px;
         }
         
         .section-header {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
             display: flex;
             align-items: center;
@@ -112,21 +118,33 @@
         .section-header h2 {
             font-size: 1.8rem;
             font-weight: 600;
-            color: #1e293b;
+            color: #202124;
             margin-right: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #4285f4;
         }
         
         .section-header::after {
             content: "";
             flex-grow: 1;
             height: 1px;
-            background-color: #e5e7eb;
+            background-color: #e1e4e8;
         }
         
         /* Post grid layout */
         .posts {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 30px;
             margin-top: 20px;
         }
@@ -136,52 +154,53 @@
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             height: 100%;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e1e4e8;
         }
         
         .post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 24px rgba(0, 0, 0, 0.12);
         }
         
         .post-card h2 {
             font-size: 1.25rem;
-            padding: 20px 25px 10px;
+            padding: 22px 25px 12px;
             line-height: 1.4;
         }
         
         .post-card h2 a {
-            color: #1e293b;
-            transition: color 0.2s;
+            color: #202124;
+            transition: color 0.2s ease;
         }
         
         .post-card h2 a:hover {
-            color: #3b82f6;
+            color: #4285f4;
         }
         
         .post-card .meta {
-            color: #64748b;
+            color: #5f6368;
             font-size: 0.85rem;
             padding: 0 25px 15px;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid #f1f3f4;
             display: flex;
             align-items: center;
+            font-weight: 500;
         }
         
         .post-card .meta::before {
             content: "📅";
-            margin-right: 5px;
+            margin-right: 8px;
             font-size: 0.9rem;
         }
         
         .post-card p {
-            padding: 15px 25px;
-            color: #475569;
+            padding: 18px 25px;
+            color: #5f6368;
             flex-grow: 1;
             font-size: 0.95rem;
             line-height: 1.7;
@@ -189,53 +208,57 @@
         
         .post-card .read-more {
             display: inline-block;
-            margin: 0 25px 20px;
-            padding: 10px 20px;
-            background-color: #3b82f6;
+            margin: 0 25px 22px;
+            padding: 10px 22px;
+            background-color: #4285f4;
             color: #fff;
             border-radius: 6px;
             font-weight: 500;
             font-size: 0.9rem;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             align-self: flex-start;
-            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .post-card .read-more:hover {
-            background-color: #1d4ed8;
+            background-color: #174ea6;
             color: #fff;
-            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.4);
         }
         
         /* Ad spaces */
         .ad-container {
-            margin: 30px 0;
-            padding: 20px;
+            margin: 40px 0;
+            padding: 24px;
             background-color: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             text-align: center;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e1e4e8;
         }
         
         /* Footer styling */
         footer {
-            background-color: #1e293b;
-            color: #cbd5e1;
+            background-color: #202124;
+            color: #dadce0;
             padding: 40px 0;
             text-align: center;
             margin-top: 60px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
         }
         
         footer p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 300;
         }
         
         /* Media queries for responsiveness */
         @media (max-width: 768px) {
             .posts {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 24px;
             }
             
             header h1 {
@@ -249,11 +272,16 @@
             .stats-container {
                 gap: 20px;
             }
+            
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
         }
         
         @media (max-width: 480px) {
             .posts {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             header {
@@ -262,6 +290,23 @@
             
             .container {
                 padding: 0 15px;
+            }
+            
+            .post-card {
+                border-radius: 8px;
+            }
+            
+            .post-card h2 {
+                font-size: 1.2rem;
+                padding: 18px 20px 10px;
+            }
+            
+            .post-card p {
+                padding: 15px 20px;
+            }
+            
+            .post-card .read-more {
+                margin: 0 20px 18px;
             }
         }
     </style>
@@ -273,7 +318,7 @@
   "@type": "Article",
   "headline": "digital marketing - Trending Keywords Blog",
   "description": "Collection of articles about digital marketing",
-  "datePublished": "April 21, 2025",
+  "datePublished": "April 24, 2025",
   "author": {
     "@type": "Organization",
     "name": "Automated Blog"
@@ -339,100 +384,101 @@
             <div class="posts">
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062710-how-customer-journey-seo-turns-clicks-into-convers.html">How Customer Journey SEO Turns Clicks Into Conversions</a></h2>
-                    <div class="meta">Posted on Tue, 15 Apr 2025 11:00:00 GMT</div>
+                    <h2><a href="../posts/20250424174912-how-to-do-keyword-research-for-seo-everything-i-le.html">How to Do Keyword Research for SEO — Everything I Learned as a HubSpot Marketer</a></h2>
+                    <div class="meta">Posted on Thu, 10 Apr 2025 11:00:00 GMT</div>
                     <p><div class="hs-featured-image-wrapper"> 
- <a class="hs-featured-image-link" href="https://blog.hubspot.com/marketing/how-to-tailor-your-seo-strategy-to-your-customer-journey" title=""> <img alt="woman...</p>
-                    <a href="../posts/20250421062710-how-customer-journey-seo-turns-clicks-into-convers.html" class="read-more">Read More</a>
+ <a class="hs-featured-image-link" href="https://blog.hubspot.com/marketing/how-to-do-keyword-research-ht" title=""> <img alt="A woman pumps her fist while wor...</p>
+                    <a href="../posts/20250424174912-how-to-do-keyword-research-for-seo-everything-i-le.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062659-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
+                    <h2><a href="../posts/20250424174850-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
                     <div class="meta">Posted on September 10, 2021</div>
                     <p><p>In SEO, there are three main “bosses” with different needs: your business, your searchers, and your search engines. How do you answer to all of them?</p><img height="1" src="https://feedpress.me/li...</p>
-                    <a href="../posts/20250421062659-the-three-bosses-of-seo.html" class="read-more">Read More</a>
+                    <a href="../posts/20250424174850-the-three-bosses-of-seo.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062701-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
+                    <h2><a href="../posts/20250424174852-the-three-bosses-of-seo.html">The Three Bosses of SEO</a></h2>
                     <div class="meta">Posted on September 10, 2021</div>
                     <p><p>In SEO, there are three main “bosses” with different needs: your business, your searchers, and your search engines. How do you answer to all of them?</p><img height="1" src="https://feedpress.me/li...</p>
-                    <a href="../posts/20250421062701-the-three-bosses-of-seo.html" class="read-more">Read More</a>
+                    <a href="../posts/20250424174852-the-three-bosses-of-seo.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062702-how-to-calculate-your-seo-roi-using-google-analyti.html">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
+                    <h2><a href="../posts/20250424174855-how-to-calculate-your-seo-roi-using-google-analyti.html">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
                     <div class="meta">Posted on September 06, 2021</div>
                     <p><p>Measuring ROI for your SEO efforts involves two factors: KPIs and the cost of your current SEO campaigns. With GA, you can pinpoint where your audience is coming from, set goals to stay on track, a...</p>
-                    <a href="../posts/20250421062702-how-to-calculate-your-seo-roi-using-google-analyti.html" class="read-more">Read More</a>
+                    <a href="../posts/20250424174855-how-to-calculate-your-seo-roi-using-google-analyti.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062703-how-to-calculate-your-seo-roi-using-google-analyti.html">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
+                    <h2><a href="../posts/20250424174856-how-to-calculate-your-seo-roi-using-google-analyti.html">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
                     <div class="meta">Posted on September 06, 2021</div>
                     <p><p>Measuring ROI for your SEO efforts involves two factors: KPIs and the cost of your current SEO campaigns. With GA, you can pinpoint where your audience is coming from, set goals to stay on track, a...</p>
-                    <a href="../posts/20250421062703-how-to-calculate-your-seo-roi-using-google-analyti.html" class="read-more">Read More</a>
+                    <a href="../posts/20250424174856-how-to-calculate-your-seo-roi-using-google-analyti.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062705-how-to-use-stat-to-find-seo-opportunities-at-scale.html">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
+                    <h2><a href="../posts/20250424174859-how-to-use-stat-to-find-seo-opportunities-at-scale.html">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
                     <div class="meta">Posted on September 03, 2021</div>
                     <p><p>Today, Cyrus explains how powerful STAT can be when you’re trying to discover SEO opportunities on a massive scale.</p><img height="1" src="https://feedpress.me/link/9375/14729254.gif" width="1" /></p>
-                    <a href="../posts/20250421062705-how-to-use-stat-to-find-seo-opportunities-at-scale.html" class="read-more">Read More</a>
+                    <a href="../posts/20250424174859-how-to-use-stat-to-find-seo-opportunities-at-scale.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062708-competitor-analysis-in-local-seo-and-how-to-gain-a.html">Competitor Analysis In Local SEO And How To Gain An Edge via @sejournal, @JRiddall</a></h2>
-                    <div class="meta">Posted on April 18, 2025</div>
-                    <p><p>Outperform local competitors by identifying gaps, refining strategies, and driving more targeted traffic through smarter competition research.</p>
-<p>The post <a href="https://www.searchenginejourn...</p>
-                    <a href="../posts/20250421062708-competitor-analysis-in-local-seo-and-how-to-gain-a.html" class="read-more">Read More</a>
+                    <h2><a href="../posts/20250424174909-master-your-message-if-you-want-to-create-better-b.html">Master Your Message If You Want To Create Better Brand Content via @sejournal, @seocopychick</a></h2>
+                    <div class="meta">Posted on April 24, 2025</div>
+                    <p><p>Messaging makes or breaks content marketing. Build a voice that resonates, write with purpose, and turn casual readers into loyal customers.</p>
+<p>The post <a href="https://www.searchenginejournal...</p>
+                    <a href="../posts/20250424174909-master-your-message-if-you-want-to-create-better-b.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062708-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html">SEOFOMO Survey Shows How Ecommerce SEOs Use AI In 2025 via @sejournal, @martinibuster</a></h2>
-                    <div class="meta">Posted on April 17, 2025</div>
-                    <p><p>Survey shows increasing integration of AI into ecommerce workflows for wins in conversion optimization, content, and technical SEO</p>
-<p>The post <a href="https://www.searchenginejournal.com/seofo...</p>
-                    <a href="../posts/20250421062708-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html" class="read-more">Read More</a>
+                    <h2><a href="../posts/20250424174909-how-to-onboard-digital-marketing-talent-according-.html">How To Onboard Digital Marketing Talent According To Agency Leaders</a></h2>
+                    <div class="meta">Posted on April 23, 2025</div>
+                    <p><p>New hires thrive when onboarding is done well. Explore proven agency strategies for fostering engagement, productivity, and loyalty from day one.</p>
+<p>The post <a href="https://www.searchenginejo...</p>
+                    <a href="../posts/20250424174909-how-to-onboard-digital-marketing-talent-according-.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062709-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html">SEOFOMO Survey Shows How Ecommerce SEOs Use AI In 2025 via @sejournal, @martinibuster</a></h2>
-                    <div class="meta">Posted on April 17, 2025</div>
-                    <p><p>Survey shows increasing integration of AI into ecommerce workflows for wins in conversion optimization, content, and technical SEO</p>
-<p>The post <a href="https://www.searchenginejournal.com/seofo...</p>
-                    <a href="../posts/20250421062709-seofomo-survey-shows-how-ecommerce-seos-use-ai-in-.html" class="read-more">Read More</a>
+                    <h2><a href="../posts/20250424174910-how-to-onboard-digital-marketing-talent-according-.html">How To Onboard Digital Marketing Talent According To Agency Leaders</a></h2>
+                    <div class="meta">Posted on April 23, 2025</div>
+                    <p><p>New hires thrive when onboarding is done well. Explore proven agency strategies for fostering engagement, productivity, and loyalty from day one.</p>
+<p>The post <a href="https://www.searchenginejo...</p>
+                    <a href="../posts/20250424174910-how-to-onboard-digital-marketing-talent-according-.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062709-how-to-get-a-job-in-digital-marketing-in-2025.html">How To Get A Job In Digital Marketing In 2025</a></h2>
-                    <div class="meta">Posted on April 17, 2025</div>
-                    <p><p>Facing challenges in your job search? Explore strategies to help you secure a digital marketing job despite tough times.</p>
-<p>The post <a href="https://www.searchenginejournal.com/how-to-get-a-jo...</p>
-                    <a href="../posts/20250421062709-how-to-get-a-job-in-digital-marketing-in-2025.html" class="read-more">Read More</a>
+                    <h2><a href="../posts/20250424174910-why-do-web-standards-matter-google-explains-seo-be.html">Why Do Web Standards Matter? Google Explains SEO Benefits via @sejournal, @MattGSouthern</a></h2>
+                    <div class="meta">Posted on April 23, 2025</div>
+                    <p><p>Google's Gary Illyes explains how web standards benefit SEO, focusing on the differences between robots.txt and sitemaps. </p>
+<p>The post <a href="https://www.searchenginejournal.com/why-do-web-st...</p>
+                    <a href="../posts/20250424174910-why-do-web-standards-matter-google-explains-seo-be.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062710-how-to-write-seo-reports-that-get-attention-from-y.html">How To Write SEO Reports That Get Attention From Your CMO via @sejournal, @AdamHeitzman</a></h2>
-                    <div class="meta">Posted on April 16, 2025</div>
-                    <p><p>Transform your reports with insights that matter. Discover how to create impactful SEO client reports that drive business results. </p>
-<p>The post <a href="https://www.searchenginejournal.com/seo-...</p>
-                    <a href="../posts/20250421062710-how-to-write-seo-reports-that-get-attention-from-y.html" class="read-more">Read More</a>
+                    <h2><a href="../posts/20250424174910-why-do-web-standards-matter-google-explains-seo-be.html">Why Do Web Standards Matter? Google Explains SEO Benefits via @sejournal, @MattGSouthern</a></h2>
+                    <div class="meta">Posted on April 23, 2025</div>
+                    <p><p>Google's Gary Illyes explains how web standards benefit SEO, focusing on the differences between robots.txt and sitemaps. </p>
+<p>The post <a href="https://www.searchenginejournal.com/why-do-web-st...</p>
+                    <a href="../posts/20250424174910-why-do-web-standards-matter-google-explains-seo-be.html" class="read-more">Read More</a>
                 </div>
                 
                 <div class="post-card">
-                    <h2><a href="../posts/20250421062706-geo-llmo-aeo-its-all-just-seo.html">GEO, LLMO, AEO… It’s All Just SEO</a></h2>
+                    <h2><a href="../posts/20250424174911-how-is-answer-engine-optimization-different-from-s.html">How Is Answer Engine Optimization Different From SEO? via @sejournal, @Kevin_Indig</a></h2>
+                    <div class="meta">Posted on April 22, 2025</div>
+                    <p><p>Is SEO enough for ChatGPT visibility? New data says: not always. See where SEO and LLM overlap and where they don’t.</p>
+<p>The post <a href="https://www.searchenginejournal.com/aeo-different-from-...</p>
+                    <a href="../posts/20250424174911-how-is-answer-engine-optimization-different-from-s.html" class="read-more">Read More</a>
+                </div>
+                
+                <div class="post-card">
+                    <h2><a href="../posts/20250424174908-geo-llmo-aeo-its-all-just-seo.html">GEO, LLMO, AEO… It’s All Just SEO</a></h2>
                     <div class="meta">Posted on April 07, 2025</div>
                     <p>So far, it doesn’t seem like it. There seems to be massive overlap in SEO and GEO, such that it doesn’t seem useful to consider them distinct processes. The things that contribute to good visibility i...</p>
-                    <a href="../posts/20250421062706-geo-llmo-aeo-its-all-just-seo.html" class="read-more">Read More</a>
-                </div>
-                
-                <div class="post-card">
-                    <h2><a href="../posts/20250421062707-geo-llmo-aeo-its-all-just-seo.html">GEO, LLMO, AEO… It’s All Just SEO</a></h2>
-                    <div class="meta">Posted on April 07, 2025</div>
-                    <p>So far, it doesn’t seem like it. There seems to be massive overlap in SEO and GEO, such that it doesn’t seem useful to consider them distinct processes. The things that contribute to good visibility i...</p>
-                    <a href="../posts/20250421062707-geo-llmo-aeo-its-all-just-seo.html" class="read-more">Read More</a>
+                    <a href="../posts/20250424174908-geo-llmo-aeo-its-all-just-seo.html" class="read-more">Read More</a>
                 </div>
                 
             </div>
