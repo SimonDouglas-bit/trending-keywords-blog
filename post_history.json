@@ -1,104 +1,204 @@
 {
     "posts": [
         {
-            "title": "The Three Bosses of SEO",
-            "link": "https://feedpress.me/link/9375/14742542/three-seo-bosses",
-            "date": "2025-04-24T17:48:50.598188"
+            "title": "DeepSeek-R1-671B-Q4_K_M with 1 or 2 Arc A770 on Xeon",
+            "link": "https://github.com/intel/ipex-llm/blob/main/docs/mddocs/Quickstart/llamacpp_portable_zip_gpu_quickstart.md",
+            "date": "2025-03-06T11:50:21.699053"
+        },
+        {
+            "title": "Tailscale is pretty useful",
+            "link": "https://blog.6nok.org/tailscale-is-pretty-useful/",
+            "date": "2025-03-06T11:50:22.475624"
+        },
+        {
+            "title": "Cognitive Behaviors That Enable Self-Improving Reasoners",
+            "link": "https://arxiv.org/abs/2503.01307",
+            "date": "2025-03-06T11:50:23.435406"
+        },
+        {
+            "title": "Apple M3 Ultra",
+            "link": "https://www.apple.com/newsroom/2025/03/apple-reveals-m3-ultra-taking-apple-silicon-to-a-new-extreme/",
+            "date": "2025-03-06T11:50:24.968247"
+        },
+        {
+            "title": "Git without a forge",
+            "link": "https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/git-no-forge/",
+            "date": "2025-03-06T11:50:26.034802"
+        },
+        {
+            "title": "QwQ-32B: Embracing the Power of Reinforcement Learning",
+            "link": "https://qwenlm.github.io/blog/qwq-32b/",
+            "date": "2025-03-06T11:50:26.983194"
+        },
+        {
+            "title": "MacBook Air M4",
+            "link": "https://www.apple.com/macbook-air/",
+            "date": "2025-03-06T11:50:27.485797"
+        },
+        {
+            "title": "Zentool \u2013 AMD Zen Microcode Manipulation Utility",
+            "link": "https://github.com/google/security-research/blob/master/pocs/cpus/entrysign/zentool/README.md",
+            "date": "2025-03-06T11:50:51.361220"
+        },
+        {
+            "title": "Exploring the Paramilitary Leaks",
+            "link": "https://micahflee.com/exploring-the-paramilitary-leaks/",
+            "date": "2025-03-06T11:50:52.086600"
+        },
+        {
+            "title": "Arva AI (YC S24) Is Hiring an AI Product Engineer",
+            "link": "https://www.ycombinator.com/companies/arva-ai/jobs/OBPwCiU-ai-product-engineer",
+            "date": "2025-03-06T11:50:54.908867"
+        },
+        {
+            "title": "The US stops sharing air quality data from embassies worldwide",
+            "link": "https://apnews.com/article/us-air-quality-monitors-8270927bbd0f166238243ac9d14bce03",
+            "date": "2025-03-06T11:50:58.887536"
+        },
+        {
+            "title": "The Authoritarian Regime Survival Guide",
+            "link": "https://verfassungsblog.de/the-authoritarian-regime-survival-guide/",
+            "date": "2025-03-06T11:51:05.098156"
+        },
+        {
+            "title": "Nebu: A Spreadsheet Editor for Varvara",
+            "link": "https://wiki.xxiivv.com/site/nebu",
+            "date": "2025-03-06T11:51:06.345081"
+        },
+        {
+            "title": "Dear Apple: Add \"Disappearing Messages\" to iMessage",
+            "link": "https://blog.cryptographyengineering.com/2025/03/01/dear-apple-add-disappearing-messages-to-imessage-right-now/",
+            "date": "2025-03-06T11:51:08.085837"
+        },
+        {
+            "title": "Tiny Ten DSP-Based HF Transceiver",
+            "link": "https://www.janbob.com/electron/TinyTen/TinyTen.htm",
+            "date": "2025-03-06T11:51:19.507812"
+        },
+        {
+            "title": "Things we've learned about building products",
+            "link": "https://newsletter.posthog.com/p/50-things-weve-learned-about-building",
+            "date": "2025-03-06T11:51:21.416706"
+        },
+        {
+            "title": "HYTRADBOI 2025 Conference Postmortem",
+            "link": "https://www.scattered-thoughts.net/writing/hytradboi-2025-postmortem/",
+            "date": "2025-03-06T11:51:24.362401"
+        },
+        {
+            "title": "Apple takes UK to court over 'backdoor' order",
+            "link": "https://www.theregister.com/2025/03/05/apple_reportedly_ipt_complaint/",
+            "date": "2025-03-06T11:51:25.655018"
+        },
+        {
+            "title": "The Tiny Star Explosions Powering Moore's Law",
+            "link": "https://spectrum.ieee.org/euv-light-source",
+            "date": "2025-03-06T11:51:26.625614"
+        },
+        {
+            "title": "Solving First Order Differential Equations with Julia",
+            "link": "https://ritog.github.io/posts/1st-order-DE-julia/1st_order_DE_julia.html",
+            "date": "2025-03-06T11:51:27.592385"
         },
         {
             "title": "The Three Bosses of SEO",
             "link": "https://feedpress.me/link/9375/14742542/three-seo-bosses",
-            "date": "2025-04-24T17:48:52.326097"
+            "date": "2025-05-01T06:27:42.251200"
+        },
+        {
+            "title": "The Three Bosses of SEO",
+            "link": "https://feedpress.me/link/9375/14742542/three-seo-bosses",
+            "date": "2025-05-01T06:27:43.634334"
         },
         {
             "title": "How to Calculate Your SEO ROI Using Google Analytics",
             "link": "https://feedpress.me/link/9375/14733670/calculate-seo-roi-with-google-analytics",
-            "date": "2025-04-24T17:48:55.137364"
+            "date": "2025-05-01T06:27:45.008864"
         },
         {
             "title": "How to Calculate Your SEO ROI Using Google Analytics",
             "link": "https://feedpress.me/link/9375/14733670/calculate-seo-roi-with-google-analytics",
-            "date": "2025-04-24T17:48:56.772836"
+            "date": "2025-05-01T06:27:46.284164"
         },
         {
             "title": "How to Use STAT to Find SEO Opportunities at Scale",
             "link": "https://feedpress.me/link/9375/14729254/find-seo-opportunities-with-stat",
-            "date": "2025-04-24T17:48:59.560324"
+            "date": "2025-05-01T06:27:47.705424"
         },
         {
             "title": "How to Use STAT to Find SEO Opportunities at Scale",
             "link": "https://feedpress.me/link/9375/14729254/find-seo-opportunities-with-stat",
-            "date": "2025-04-24T17:49:01.202002"
+            "date": "2025-05-01T06:27:49.030565"
+        },
+        {
+            "title": "Semantic SEO: The Advanced Skill Most SEOs Pretend to Understand",
+            "link": "https://ahrefs.com/blog/semantic-seo/",
+            "date": "2025-05-01T06:27:49.335150"
+        },
+        {
+            "title": "Semantic SEO: The Advanced Skill Most SEOs Pretend to Understand",
+            "link": "https://ahrefs.com/blog/semantic-seo/",
+            "date": "2025-05-01T06:27:49.636913"
         },
         {
             "title": "GEO, LLMO, AEO\u2026 It\u2019s All Just SEO",
             "link": "https://ahrefs.com/blog/geo-is-just-seo/",
-            "date": "2025-04-24T17:49:07.881569"
+            "date": "2025-05-01T06:27:49.890691"
         },
         {
             "title": "GEO, LLMO, AEO\u2026 It\u2019s All Just SEO",
             "link": "https://ahrefs.com/blog/geo-is-just-seo/",
-            "date": "2025-04-24T17:49:08.102688"
+            "date": "2025-05-01T06:27:50.089883"
         },
         {
-            "title": "Master Your Message If You Want To Create Better Brand Content via @sejournal, @seocopychick",
-            "link": "https://www.searchenginejournal.com/how-to-master-your-message-create-better-brand-content/542611/",
-            "date": "2025-04-24T17:49:08.565673"
+            "title": "SEO Vs. PPC: What\u2019s The Best Strategy For Your Business? via @sejournal, @brookeosmundson",
+            "link": "https://www.searchenginejournal.com/seo-vs-ppc/234681/",
+            "date": "2025-05-01T06:27:50.361913"
         },
         {
-            "title": "Master Your Message If You Want To Create Better Brand Content via @sejournal, @seocopychick",
-            "link": "https://www.searchenginejournal.com/how-to-master-your-message-create-better-brand-content/542611/",
-            "date": "2025-04-24T17:49:09.068055"
+            "title": "SEO Vs. PPC: What\u2019s The Best Strategy For Your Business? via @sejournal, @brookeosmundson",
+            "link": "https://www.searchenginejournal.com/seo-vs-ppc/234681/",
+            "date": "2025-05-01T06:27:50.559404"
         },
         {
-            "title": "How To Onboard Digital Marketing Talent According To Agency Leaders",
-            "link": "https://www.searchenginejournal.com/how-to-onboard-digital-marketing-talent-according-to-agency-leaders/542900/",
-            "date": "2025-04-24T17:49:09.557659"
+            "title": "AI Search & SEO: Key Trends and Insights [Webinar] via @sejournal, @lorenbaker",
+            "link": "https://www.searchenginejournal.com/ai-search-seo-key-trends-insights/544323/",
+            "date": "2025-05-01T06:27:50.820796"
         },
         {
-            "title": "How To Onboard Digital Marketing Talent According To Agency Leaders",
-            "link": "https://www.searchenginejournal.com/how-to-onboard-digital-marketing-talent-according-to-agency-leaders/542900/",
-            "date": "2025-04-24T17:49:10.029863"
+            "title": "AI Search & SEO: Key Trends and Insights [Webinar] via @sejournal, @lorenbaker",
+            "link": "https://www.searchenginejournal.com/ai-search-seo-key-trends-insights/544323/",
+            "date": "2025-05-01T06:27:51.072553"
         },
         {
-            "title": "Why Do Web Standards Matter? Google Explains SEO Benefits via @sejournal, @MattGSouthern",
-            "link": "https://www.searchenginejournal.com/why-do-web-standards-matter-google-explains-seo-benefits/545162/",
-            "date": "2025-04-24T17:49:10.502631"
+            "title": "SEO Rockstar Names 7 SEO Fundamentals To Win In AI Search via @sejournal, @martinibuster",
+            "link": "https://www.searchenginejournal.com/seo-rockstar-names-7-seo-fundamentals-to-win-in-ai-search/545328/",
+            "date": "2025-05-01T06:27:51.409610"
         },
         {
-            "title": "Why Do Web Standards Matter? Google Explains SEO Benefits via @sejournal, @MattGSouthern",
-            "link": "https://www.searchenginejournal.com/why-do-web-standards-matter-google-explains-seo-benefits/545162/",
-            "date": "2025-04-24T17:49:10.921587"
+            "title": "SEO Rockstar Names 7 SEO Fundamentals To Win In AI Search via @sejournal, @martinibuster",
+            "link": "https://www.searchenginejournal.com/seo-rockstar-names-7-seo-fundamentals-to-win-in-ai-search/545328/",
+            "date": "2025-05-01T06:27:51.597534"
         },
         {
-            "title": "How Is Answer Engine Optimization Different From SEO? via @sejournal, @Kevin_Indig",
-            "link": "https://www.searchenginejournal.com/aeo-different-from-seo/545027/",
-            "date": "2025-04-24T17:49:11.399305"
+            "title": "Google On Diluting SEO Impact Through Anchor Text Overuse via @sejournal, @martinibuster",
+            "link": "https://www.searchenginejournal.com/google-on-diluting-seo-impact-through-anchor-text-overuse/545635/",
+            "date": "2025-05-01T06:27:51.827536"
         },
         {
-            "title": "How Is Answer Engine Optimization Different From SEO? via @sejournal, @Kevin_Indig",
-            "link": "https://www.searchenginejournal.com/aeo-different-from-seo/545027/",
-            "date": "2025-04-24T17:49:11.852191"
+            "title": "Google On Diluting SEO Impact Through Anchor Text Overuse via @sejournal, @martinibuster",
+            "link": "https://www.searchenginejournal.com/google-on-diluting-seo-impact-through-anchor-text-overuse/545635/",
+            "date": "2025-05-01T06:27:51.987187"
         },
         {
-            "title": "How Customer Journey SEO Turns Clicks Into Conversions",
-            "link": "https://blog.hubspot.com/marketing/how-to-tailor-your-seo-strategy-to-your-customer-journey",
-            "date": "2025-04-24T17:49:11.899789"
+            "title": "Ask An SEO: How To Convince C-Suite To Support Brand-Based SEO via @sejournal, @MordyOberstein",
+            "link": "https://www.searchenginejournal.com/ask-an-seo-c-suite-to-support-brand-based-seo/545274/",
+            "date": "2025-05-01T06:27:52.333622"
         },
         {
-            "title": "How Customer Journey SEO Turns Clicks Into Conversions",
-            "link": "https://blog.hubspot.com/marketing/how-to-tailor-your-seo-strategy-to-your-customer-journey",
-            "date": "2025-04-24T17:49:11.947526"
-        },
-        {
-            "title": "How to Do Keyword Research for SEO \u2014 Everything I Learned as a HubSpot Marketer",
-            "link": "https://blog.hubspot.com/marketing/how-to-do-keyword-research-ht",
-            "date": "2025-04-24T17:49:12.045833"
-        },
-        {
-            "title": "How to Do Keyword Research for SEO \u2014 Everything I Learned as a HubSpot Marketer",
-            "link": "https://blog.hubspot.com/marketing/how-to-do-keyword-research-ht",
-            "date": "2025-04-24T17:49:12.145663"
+            "title": "Ask An SEO: How To Convince C-Suite To Support Brand-Based SEO via @sejournal, @MordyOberstein",
+            "link": "https://www.searchenginejournal.com/ask-an-seo-c-suite-to-support-brand-based-seo/545274/",
+            "date": "2025-05-01T06:27:52.638836"
         }
     ]
 }
