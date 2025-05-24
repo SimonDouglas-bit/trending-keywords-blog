@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepSeek-R1-671B-Q4_K_M with 1 or 2 Arc A770 on Xeon - My Automated Blog</title>
+    <meta name="description" content="&lt;a href=&quot;https://news.ycombinator.com/item?id=43274613&quot;&gt;Comments&lt;/a&gt;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">My Automated Blog</a></h1>
+        <p>Automatically aggregated content about interesting topics</p>
+    </header>
+    <main>
+        <article>
+            <h1>DeepSeek-R1-671B-Q4_K_M with 1 or 2 Arc A770 on Xeon</h1>
+            <div class="meta">Posted on March 06, 2025 | Topics: programming, python, technology</div>
+            <div class="content">
+                <p>Run llama.cpp Portable Zip on Intel GPU with IPEX-LLM</p>
+<p>&lt; </p>
+<p>English</p>
+<p>| </p>
+<p>中文</p>
+<blockquote></blockquote>
+<p>Important</p>
+<p>You can now run </p>
+<p>DeepSeek-R1-671B-Q4_K_M</p>
+<p>with 1 or 2 Arc A770 on Xeon using the latest </p>
+<p>llama.cpp Portable Zip</p>
+<p>; see the </p>
+<p>guide</p>
+<p>below.</p>
+<p>This guide demonstrates how to use </p>
+<p>llama.cpp portable zip</p>
+<p>to directly run llama.cpp on Intel GPU with </p>
+<p>ipex-llm</p>
+<p>(without the need of manual installations).</p>
+<p>Note</p>
+<p>llama.cpp portable zip has been verified on:</p>
+<p>Intel Core Ultra processors</p>
+<p>Intel Core 11th - 14th gen processors</p>
+<p>Intel Arc A-Series GPU</p>
+<p>Intel Arc B-Series GPU</p>
+<p>Table of Contents</p>
+<p>Windows Quickstart</p>
+<p>Prerequisites</p>
+<p>Step 1: Download and Unzip</p>
+<p>Step 2: Runtime Configuration</p>
+<p>Step 3: Run GGUF models</p>
+<p>Linux Quickstart</p>
+<p>Prerequisites</p>
+<p>Step 1: Download and Extract</p>
+<p>Step 2: Runtime Configuration</p>
+<p>Step 3: Run GGUF models</p>
+<p>(New) FlashMoE for DeepSeek V3/R1 671B using llama.cpp</p>
+<p>Tips &amp; Troubleshooting</p>
+<p>Error: Detected different sycl devices</p>
+<p>Multi-GPUs usage</p>
+<p>Performance Environment</p>
+<p>More Details</p>
+<p>Windows Quickstart</p>
+<p>Prerequisites</p>
+<p>Check your GPU driver version, and update it if needed:</p>
+<p>For Intel Core Ultra processors (Series 2) or Intel Arc B-Series GPU, we recommend updating your GPU driver to the </p>
+<p>latest</p>
+<p>For other Intel iGPU/dGPU, we recommend using GPU driver version </p>
+<p>32.0.101.6078</p>
+<p>Step 1: Download and Unzip</p>
+<p>Download IPEX-LLM llama.cpp portable zip for Windows users from the </p>
+<p>link</p>
+<p>.</p>
+<p>Then, extract the zip file to a folder.</p>
+<p>Step 2: Runtime Configuration</p>
+<p>Open "Command Prompt" (cmd), and enter the extracted folder through </p>
+<p>cd /d PATH\TO\EXTRACTED\FOLDER</p>
+<p>To use GPU acceleration, several environment variables are required or recommended before running </p>
+<p>llama.cpp</p>
+<p>.</p>
+<p>set</p>
+<p>SYCL_CACHE_PERSISTENT</p>
+<p>=</p>
+<p>1</p>
+<p>For multi-GPUs user, go to </p>
+<p>Tips</p>
+<p>for how to select specific GPU.</p>
+<p>Step 3: Run GGUF models</p>
+<p>Here we provide a simple example to show how to run a community GGUF model with IPEX-LLM.</p>
+<p>Model Download</p>
+<p>Before running, you should download or copy community GGUF model to your local directory. For instance,  </p>
+<p>DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf</p>
+<p>of </p>
+<p>bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF</p>
+<p>.</p>
+<p>Run GGUF model</p>
+<p>Please change </p>
+<p>PATH\TO\DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf</p>
+<p>to your model path before your run below command.</p>
+<p>llama-cli.exe -m PATH\TO\DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf -p </p>
+<p>"</p>
+<p>A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>. User: Question:The product of the ages of three teenagers is 4590. How old is the oldest? a. 18 b. 19 c. 15 d. 17 Assistant: <think></p>
+<p>"</p>
+<p>-n </p>
+<p>2048</p>
+<p>-t </p>
+<p>8</p>
+<p>-e -ngl </p>
+<p>99</p>
+<p>--color -c </p>
+<p>2500</p>
+<p>--temp </p>
+<p>0</p>
+<p>Part of outputs:</p>
+<p>Found 1 SYCL devices:
+|  |                   |                                       |       |Max    |        |Max  |Global |                     |
+|  |                   |                                       |       |compute|Max work|sub  |mem    |                     |
+|ID|        Device Type|                                   Name|Version|units  |group   |group|size   |       Driver version|
+|--|-------------------|---------------------------------------|-------|-------|--------|-----|-------|---------------------|
+| 0| [level_zero:gpu:0]|                     Intel Arc Graphics|  12.71|    128|    1024|   32| 13578M|            1.3.27504|
+llama_kv_cache_init:      SYCL0 KV buffer size =   138.25 MiB
+llama_new_context_with_model: KV self size  =  138.25 MiB, K (f16):   69.12 MiB, V (f16):   69.12 MiB
+llama_new_context_with_model:  SYCL_Host  output buffer size =     0.58 MiB
+llama_new_context_with_model:      SYCL0 compute buffer size =  1501.00 MiB
+llama_new_context_with_model:  SYCL_Host compute buffer size =    58.97 MiB
+llama_new_context_with_model: graph nodes  = 874
+llama_new_context_with_model: graph splits = 2
+common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+main: llama threadpool init, n_threads = 8</p>
+<p>system_info: n_threads = 8 (n_threads_batch = 8) / 22 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | LLAMAFILE = 1 | OPENMP = 1 | AARCH64_REPACK = 1 |</p>
+<p>sampler seed: 341519086
+sampler params:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+        top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, temp = 0.000
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampler chain: logits -&gt; logit-bias -&gt; penalties -&gt; dry -&gt; top-k -&gt; typical -&gt; top-p -&gt; min-p -&gt; xtc -&gt; temp-ext -&gt; dist</p>
+<p>generate: n_ctx = 2528, n_batch = 4096, n_predict = 2048, n_keep = 1</p>
+<p><think>
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</think></p>
+<p><answer>XXXX</answer> [end of text]</p>
+<p>llama_perf_sampler_print:    sampling time =     xxx.xx ms /  1386 runs   (    x.xx ms per token, xxxxx.xx tokens per second)
+llama_perf_context_print:        load time =   xxxxx.xx ms
+llama_perf_context_print: prompt eval time =     xxx.xx ms /   129 tokens (    x.xx ms per token,   xxx.xx tokens per second)
+llama_perf_context_print:        eval time =   xxxxx.xx ms /  1256 runs   (   xx.xx ms per token,    xx.xx tokens per second)
+llama_perf_context_print:       total time =   xxxxx.xx ms /  1385 tokens</p>
+<p>Linux Quickstart</p>
+<p>Prerequisites</p>
+<p>Check your GPU driver version, and update it if needed; we recommend following </p>
+<p>Intel client GPU driver installation guide</p>
+<p>to install your GPU driver.</p>
+<p>Step 1: Download and Extract</p>
+<p>Download IPEX-LLM llama.cpp portable tgz for Linux users from the </p>
+<p>link</p>
+<p>.</p>
+<p>Then, extract the tgz file to a folder.</p>
+<p>Step 2: Runtime Configuration</p>
+<p>Open a "Terminal", and enter the extracted folder through </p>
+<p>cd /PATH/TO/EXTRACTED/FOLDER</p>
+<p>To use GPU acceleration, several environment variables are required or recommended before running </p>
+<p>llama.cpp</p>
+<p>.</p>
+<p>export</p>
+<p>SYCL_CACHE_PERSISTENT=1</p>
+<p>For multi-GPUs user, go to </p>
+<p>Tips</p>
+<p>for how to select specific GPU.</p>
+<p>Step 3: Run GGUF models</p>
+<p>Here we provide a simple example to show how to run a community GGUF model with IPEX-LLM.</p>
+<p>Model Download</p>
+<p>Before running, you should download or copy community GGUF model to your local directory. For instance,  </p>
+<p>DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf</p>
+<p>of </p>
+<p>bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF</p>
+<p>.</p>
+<p>Run GGUF model</p>
+<p>Please change </p>
+<p>/PATH/TO/DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf</p>
+<p>to your model path before your run below command.</p>
+<p>./llama-cli -m /PATH/TO/DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf -p </p>
+<p>"</p>
+<p>A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>. User: Question:The product of the ages of three teenagers is 4590. How old is the oldest? a. 18 b. 19 c. 15 d. 17 Assistant: <think></p>
+<p>"</p>
+<p>-n 2048  -t 8 -e -ngl 99 --color -c 2500 --temp 0</p>
+<p>Part of outputs:</p>
+<p>Found 1 SYCL devices:</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>Max    </p>
+<p>|</p>
+<p>|</p>
+<p>Max  </p>
+<p>|</p>
+<p>Global </p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>compute</p>
+<p>|</p>
+<p>Max work</p>
+<p>|</p>
+<p>sub  </p>
+<p>|</p>
+<p>mem    </p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>ID</p>
+<p>|</p>
+<pre><code>    Device Type
+</code></pre>
+<p>|</p>
+<pre><code>                               Name
+</code></pre>
+<p>|</p>
+<p>Version</p>
+<p>|</p>
+<p>units  </p>
+<p>|</p>
+<p>group   </p>
+<p>|</p>
+<p>group</p>
+<p>|</p>
+<p>size   </p>
+<p>|</p>
+<pre><code>   Driver version
+</code></pre>
+<p>|</p>
+<p>|</p>
+<p>--</p>
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<hr />
+<p>|</p>
+<p>|</p>
+<p>0</p>
+<p>|</p>
+<p>[level_zero:gpu:0]</p>
+<p>|</p>
+<pre><code>                 Intel Arc Graphics
+</code></pre>
+<p>|</p>
+<p>12.71</p>
+<p>|</p>
+<pre><code>128
+</code></pre>
+<p>|</p>
+<pre><code>1024
+</code></pre>
+<p>|</p>
+<p>32</p>
+<p>|</p>
+<p>13578M</p>
+<p>|</p>
+<pre><code>        1.3.27504
+</code></pre>
+<p>|</p>
+<p>llama_kv_cache_init:      SYCL0 KV buffer size =   138.25 MiB
+llama_new_context_with_model: KV self size  =  138.25 MiB, K (f16):   69.12 MiB, V (f16):   69.12 MiB
+llama_new_context_with_model:  SYCL_Host  output buffer size =     0.58 MiB
+llama_new_context_with_model:      SYCL0 compute buffer size =  1501.00 MiB
+llama_new_context_with_model:  SYCL_Host compute buffer size =    58.97 MiB
+llama_new_context_with_model: graph nodes  = 874
+llama_new_context_with_model: graph splits = 2
+common_init_from_params: warming up the model with an empty run - please </p>
+<p>wait</p>
+<p>... (--no-warmup to disable)
+main: llama threadpool init, n_threads = 8</p>
+<p>system_info: n_threads = 8 (n_threads_batch = 8) / 22 </p>
+<p>|</p>
+<p>CPU </p>
+<p>:</p>
+<p>SSE3 = 1 </p>
+<p>|</p>
+<p>SSSE3 = 1 </p>
+<p>|</p>
+<p>AVX = 1 </p>
+<p>|</p>
+<p>AVX2 = 1 </p>
+<p>|</p>
+<p>F16C = 1 </p>
+<p>|</p>
+<p>FMA = 1 </p>
+<p>|</p>
+<p>LLAMAFILE = 1 </p>
+<p>|</p>
+<p>OPENMP = 1 </p>
+<p>|</p>
+<p>AARCH64_REPACK = 1 </p>
+<p>|</p>
+<p>sampler seed: 341519086
+sampler params:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+        top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, temp = 0.000
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampler chain: logits -</p>
+<blockquote></blockquote>
+<p>logit-bias -</p>
+<blockquote></blockquote>
+<p>penalties -</p>
+<blockquote></blockquote>
+<p>dry -</p>
+<blockquote></blockquote>
+<p>top-k -</p>
+<blockquote></blockquote>
+<p>typical -</p>
+<blockquote></blockquote>
+<p>top-p -</p>
+<blockquote></blockquote>
+<p>min-p -</p>
+<blockquote></blockquote>
+<p>xtc -</p>
+<blockquote></blockquote>
+<p>temp-ext -</p>
+<blockquote></blockquote>
+<p>dist</p>
+<p>generate: n_ctx = 2528, n_batch = 4096, n_predict = 2048, n_keep = 1</p>
+<p>&lt;</p>
+<p>think</p>
+<blockquote></blockquote>
+<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+<p>&lt;</p>
+<p>/think</p>
+<blockquote></blockquote>
+<p>&lt;</p>
+<p>answer</p>
+<blockquote></blockquote>
+<p>XXXX</p>
+<p>&lt;</p>
+<p>/answer</p>
+<blockquote></blockquote>
+<p>[end of text]</p>
+<p>FlashMoE for DeepSeek V3/R1</p>
+<p>FlashMoE is a command-line tool built on llama.cpp, optimized for mixture-of-experts (MoE) models such as DeepSeek V3/R1. Now, it's available for Linux platforms.</p>
+<p>Tested MoE GGUF Models (other MoE GGUF models are also supported):</p>
+<p>DeepSeek-V3-Q4_K_M</p>
+<p>DeepSeek-V3-Q6_K</p>
+<p>DeepSeek-R1-Q4_K_M.gguf</p>
+<p>DeepSeek-R1-Q6_K</p>
+<p>Run DeepSeek V3/R1 with FlashMoE</p>
+<p>Requirements:</p>
+<p>380GB CPU Memory</p>
+<p>1-8 ARC A770</p>
+<p>500GB Disk</p>
+<p>Note:</p>
+<p>Larger models and other precisions may require more resources.</p>
+<p>For 1 ARC A770 platform, please reduce context length (e.g., 1024) to avoid OOM. Add this option </p>
+<p>-c 1024</p>
+<p>at the end of below command.</p>
+<p>Before running, you should download or copy community GGUF model to your local directory. For instance,  </p>
+<p>DeepSeek-R1-Q4_K_M.gguf</p>
+<p>of </p>
+<p>DeepSeek-R1-Q4_K_M.gguf</p>
+<p>.</p>
+<p>Change </p>
+<p>/PATH/TO/DeepSeek-R1-Q4_K_M-00001-of-00009.gguf</p>
+<p>to your model path, then run </p>
+<p>DeepSeek-R1-Q4_K_M.gguf</p>
+<p>./flash-moe -m /PATH/TO/DeepSeek-R1-Q4_K_M-00001-of-00009.gguf --prompt </p>
+<p>"</p>
+<p>What's AI?</p>
+<p>"</p>
+<p>Part of outputs</p>
+<p>llama_kv_cache_init:      SYCL0 KV buffer size =  1280.00 MiB
+llama_kv_cache_init:      SYCL1 KV buffer size =  1280.00 MiB
+llama_kv_cache_init:      SYCL2 KV buffer size =  1280.00 MiB
+llama_kv_cache_init:      SYCL3 KV buffer size =  1280.00 MiB
+llama_kv_cache_init:      SYCL4 KV buffer size =  1120.00 MiB
+llama_kv_cache_init:      SYCL5 KV buffer size =  1280.00 MiB
+llama_kv_cache_init:      SYCL6 KV buffer size =  1280.00 MiB
+llama_kv_cache_init:      SYCL7 KV buffer size =   960.00 MiB
+llama_new_context_with_model: KV self size  = 9760.00 MiB, K (i8): 5856.00 MiB, V (i8): 3904.00 MiB
+llama_new_context_with_model:  SYCL_Host  output buffer size =     0.49 MiB
+llama_new_context_with_model: pipeline parallelism enabled (n_copies=1)
+llama_new_context_with_model:      SYCL0 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL1 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL2 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL3 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL4 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL5 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL6 compute buffer size =  2076.02 MiB
+llama_new_context_with_model:      SYCL7 compute buffer size =  3264.00 MiB
+llama_new_context_with_model:  SYCL_Host compute buffer size =  1332.05 MiB
+llama_new_context_with_model: graph nodes  = 5184 (with bs=4096), 4720 (with bs=1)
+llama_new_context_with_model: graph splits = 125
+common_init_from_params: warming up the model with an empty run - please </p>
+<p>wait</p>
+<p>... (--no-warmup to disable)
+main: llama threadpool init, n_threads = 48</p>
+<p>system_info: n_threads = 48 (n_threads_batch = 48) / 192 </p>
+<p>|</p>
+<p>CPU </p>
+<p>:</p>
+<p>SSE3 = 1 </p>
+<p>|</p>
+<p>SSSE3 = 1 </p>
+<p>|</p>
+<p>AVX = 1 </p>
+<p>|</p>
+<p>AVX_VNNI = 1 </p>
+<p>|</p>
+<p>AVX2 = 1 </p>
+<p>|</p>
+<p>F16C = 1 </p>
+<p>|</p>
+<p>FMA = 1 </p>
+<p>|</p>
+<p>LLAMAFILE = 1 </p>
+<p>|</p>
+<p>OPENMP = 1 </p>
+<p>|</p>
+<p>AARCH64_REPACK = 1 </p>
+<p>|</p>
+<p>sampler seed: 2052631435
+sampler params:
+        repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+        dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+        top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, temp = 0.800
+        mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000
+sampler chain: logits -</p>
+<blockquote></blockquote>
+<p>logit-bias -</p>
+<blockquote></blockquote>
+<p>penalties -</p>
+<blockquote></blockquote>
+<p>dry -</p>
+<blockquote></blockquote>
+<p>top-k -</p>
+<blockquote></blockquote>
+<p>typical -</p>
+<blockquote></blockquote>
+<p>top-p -</p>
+<blockquote></blockquote>
+<p>min-p -</p>
+<blockquote></blockquote>
+<p>xtc -</p>
+<blockquote></blockquote>
+<p>temp-ext -</p>
+<blockquote></blockquote>
+<p>dist
+generate: n_ctx = 4096, n_batch = 4096, n_predict = -1, n_keep = 1</p>
+<p>&lt;</p>
+<p>think</p>
+<blockquote></blockquote>
+<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+<p>&lt;</p>
+<p>/think</p>
+<blockquote></blockquote>
+<p>&lt;</p>
+<p>answer</p>
+<blockquote></blockquote>
+<p>XXXX</p>
+<p>&lt;</p>
+<p>/answer</p>
+<blockquote></blockquote>
+<p>[end of text]</p>
+<p>Tips &amp; Troubleshooting</p>
+<p>Error: Detected different sycl devices</p>
+<p>You will meet error log like below:</p>
+<p>Found 3 SYCL devices:
+|  |                   |                                       |       |Max    |        |Max  |Global |                     |
+|  |                   |                                       |       |compute|Max work|sub  |mem    |                     |
+|ID|        Device Type|                                   Name|Version|units  |group   |group|size   |       Driver version|
+|--|-------------------|---------------------------------------|-------|-------|--------|-----|-------|---------------------|
+| 0| [level_zero:gpu:0]|                Intel Arc A770 Graphics|  12.55|    512|    1024|   32| 16225M|     1.6.31907.700000|
+| 1| [level_zero:gpu:1]|                Intel Arc A770 Graphics|  12.55|    512|    1024|   32| 16225M|     1.6.31907.700000|
+| 2| [level_zero:gpu:2]|                 Intel UHD Graphics 770|   12.2|     32|     512|   32| 63218M|     1.6.31907.700000|
+Error: Detected different sycl devices, the performance will limit to the slowest device. 
+If you want to disable this checking and use all of them, please set environment SYCL_DEVICE_CHECK=0, and try again.
+If you just want to use one of the devices, please set environment like ONEAPI_DEVICE_SELECTOR=level_zero:0 or ONEAPI_DEVICE_SELECTOR=level_zero:1 to choose your devices.
+If you want to use two or more deivces, please set environment like ONEAPI_DEVICE_SELECTOR="level_zero:0;level_zero:1"
+See https://github.com/intel/ipex-llm/blob/main/docs/mddocs/Overview/KeyFeatures/multi_gpus_selection.md for details. Exiting.</p>
+<p>Because the GPUs are not the same, the jobs will be allocated according to device's memory. Upon example, the iGPU(Intel UHD Graphics 770) will get 2/3 of the computing tasks. The performance will be quit bad. So you have below two choices:</p>
+<p>Disable the iGPU will get the best performance. Visit </p>
+<p>Multi-GPUs usage</p>
+<p>for details.</p>
+<p>Disable this check and use all of them, you can run below command:</p>
+<p>set SYCL_DEVICE_CHECK=0</p>
+<p>(Windows user)</p>
+<p>export SYCL_DEVICE_CHECK=0</p>
+<p>(Linux user)</p>
+<p>Multi-GPUs usage</p>
+<p>If your machine has multiple Intel GPUs, llama.cpp will by default runs on all of them. If you are not clear about your hardware configuration, you can get the configuration when you run a GGUF model. Like:</p>
+<p>Found 3 SYCL devices:
+|  |                   |                                       |       |Max    |        |Max  |Global |                     |
+|  |                   |                                       |       |compute|Max work|sub  |mem    |                     |
+|ID|        Device Type|                                   Name|Version|units  |group   |group|size   |       Driver version|
+|--|-------------------|---------------------------------------|-------|-------|--------|-----|-------|---------------------|
+| 0| [level_zero:gpu:0]|                Intel Arc A770 Graphics|  12.55|    512|    1024|   32| 16225M|     1.6.31907.700000|
+| 1| [level_zero:gpu:1]|                Intel Arc A770 Graphics|  12.55|    512|    1024|   32| 16225M|     1.6.31907.700000|
+| 2| [level_zero:gpu:2]|                 Intel UHD Graphics 770|   12.2|     32|     512|   32| 63218M|     1.6.31907.700000|</p>
+<p>To specify which Intel GPU you would like llama.cpp to use, you could set environment variable </p>
+<p>ONEAPI_DEVICE_SELECTOR</p>
+<p>before starting llama.cpp command</p>
+<p>, as follows:</p>
+<p>For </p>
+<p>Windows</p>
+<p>users:</p>
+<p>set</p>
+<p>ONEAPI_DEVICE_SELECTOR</p>
+<p>=</p>
+<p>level_zero:0 (If you want to run on one GPU, llama.cpp will use the first GPU.) </p>
+<p>set</p>
+<p>ONEAPI_DEVICE_SELECTOR</p>
+<p>=</p>
+<p>"</p>
+<p>level_zero:0;level_zero:1</p>
+<p>"</p>
+<p>(If you want to run on two GPUs, llama.cpp will use the first and second GPUs.)</p>
+<p>For </p>
+<p>Linux</p>
+<p>users:</p>
+<p>export</p>
+<p>ONEAPI_DEVICE_SELECTOR=level_zero:0 (If you want to run on one GPU, llama.cpp will use the first GPU.) </p>
+<p>export</p>
+<p>ONEAPI_DEVICE_SELECTOR=</p>
+<p>"</p>
+<p>level_zero:0;level_zero:1</p>
+<p>"</p>
+<p>(If you want to run on two GPUs, llama.cpp will use the first and second GPUs.)</p>
+<p>Performance Environment</p>
+<p>SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS</p>
+<p>To enable SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS, you can run below command:</p>
+<p>set SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS=1</p>
+<p>(Windows user)</p>
+<p>export SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS=1</p>
+<p>(Linux user)</p>
+<p>Note</p>
+<p>The environment variable SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS determines the usage of immediate command lists for task submission to the GPU. While this mode typically enhances performance, exceptions may occur. Please consider experimenting with and without this environment variable for best performance. For more details, you can refer to </p>
+<p>this article</p>
+<p>.</p>
+            </div>
+            <div class="source">Source: <a href="https://github.com/intel/ipex-llm/blob/main/docs/mddocs/Quickstart/llamacpp_portable_zip_gpu_quickstart.md" target="_blank">Hacker News</a></div>
+        </article>
+        <div class="affiliate">
+            
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Automated Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
